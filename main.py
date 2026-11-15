@@ -36,9 +36,6 @@ class TaskORM(Base):
     completed: Mapped[bool] = mapped_column(default=False)
 
 
-
-
-
 class TaskSchema(BaseModel):
     id: str
     title: str
@@ -100,7 +97,6 @@ def delete_task(task_id: str, db: Session = Depends(get_db)) -> None:
     task_to_delete = db.get(TaskORM, task_id)
     db.delete(task_to_delete)
     db.commit()
-
 
 
 class CategoryORM(BaseModel):
